@@ -1,11 +1,9 @@
-package com.example.winnie.kotlindemo.kotlin
+package com.example.winnie.kotlindemo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import com.example.winnie.kotlindemo.R
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_kotlin.*
-import org.jetbrains.anko.find
 
 class KotlinActivity: AppCompatActivity() {
 
@@ -16,13 +14,13 @@ class KotlinActivity: AppCompatActivity() {
 
         //使用anko，可以省略findViewById
         textView.text = getString(R.string.app_name)
-        sum1(a = 3,b = 5)
+        sum1(a = 3, b = 5)
         testEqual()
 
         var person1: Person = Person("LiuYang1", 19)
         var person2: Person = Person("LiuYang2")
         var person3: Person = Person()
-        var man1: Person = Man(name= "LiuYang3", age =19)
+        var man1: Person = Man(name = "LiuYang3", age = 19)
         var man2: Person = Man(19)
         var man3: Person = Man("LiuYang4")
         var woMan1: Person = WoMan("LiuYang5")
@@ -30,6 +28,10 @@ class KotlinActivity: AppCompatActivity() {
         var woMan3: Person = WoMan(19)
 
         var (name, age) = woMan2;
+
+        if(name.length > 0){
+            Log.d("tag", "name = "+name)
+        }
     }
 }
 

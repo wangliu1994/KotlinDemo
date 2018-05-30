@@ -1,4 +1,4 @@
-package com.example.winnie.kotlindemo.kotlin
+package com.example.winnie.kotlindemo
 
 import android.util.Log
 

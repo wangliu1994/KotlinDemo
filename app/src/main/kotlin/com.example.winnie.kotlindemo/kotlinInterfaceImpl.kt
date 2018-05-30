@@ -1,6 +1,6 @@
-package com.example.winnie.kotlindemo.kotlin
+package com.example.winnie.kotlindemo
 
-//import com.example.winnie.kotlindemo.java.kotlinInterface
+//import com.example.winnie.kotlindemo.kotlinInterface
 
 /**
  * Created by winnie on 2018/5/3.

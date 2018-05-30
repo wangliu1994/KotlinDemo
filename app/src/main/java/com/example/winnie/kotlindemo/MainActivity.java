@@ -1,4 +1,4 @@
-package com.example.winnie.kotlindemo.java;
+package com.example.winnie.kotlindemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
