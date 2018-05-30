@@ -9,15 +9,15 @@ var a = 12
 var b: Int = 13
 
 //将表达式作为函数体、返回值类型⾃动推断的函数
-fun sum(a: Int, b: Int) = a+ b
+fun sum(a: Int, b: Int) = a + b
 
 //定义函数
-fun sub(a: Int, b: Int): Int{
+fun sub(a: Int, b: Int): Int {
     return a + b
 }
 
 //使用函数返回无意义的值
-fun sum1(a: Int, b: Int): Unit{
+fun sum1(a: Int, b: Int): Unit {
     val num1: Int = b //立即赋值
     var num2 = a //自动推断出是Int类型
     var num3: Int //如果没有初始化值，类型不能省略
@@ -26,15 +26,15 @@ fun sum1(a: Int, b: Int): Unit{
 }
 
 //使用函数返回无意义的值，Unit可以省略
-fun sum2(a: Int, b: Int){
+fun sum2(a: Int, b: Int) {
     println("test a sum b")
 }
 
 //使用类型检测及自动类型转换
-fun getStringLength(obj: Any): Int?{
-    if(obj is String){
+fun getStringLength(obj: Any): Int? {
+    if (obj is String) {
         return obj.length;
-    }else{
+    } else {
         return null;
     }
 }
@@ -52,7 +52,7 @@ fun sum(a: Int, b: Int?): Int {
     return num1 + num2
 }
 
-fun getString(obj: Any): String? {
+fun <T> getString(obj: Any, vararg s: T): String? {
 
     if (obj is String) {
         return obj
@@ -123,7 +123,7 @@ fun isNull() {
     println(files?.size ?: "empty")
 }
 
-fun testEqual(){
+fun testEqual() {
     val a: Int = 10000
     print(a === a) // 输出“true”
     val boxedA: Int? = a
@@ -134,7 +134,7 @@ fun testEqual(){
     print(boxedA == anotherBoxedA) // 输出“true”
 
     var b: Long = a.toLong();
-    var c:Int = b.toInt();
+    var c: Int = b.toInt();
 }
 
 class Turtle {
@@ -175,4 +175,38 @@ class Turtle {
         just test
         hahha
         """.trimMargin()
+
+
+    //高阶函数和拉姆达表达式
+    fun testLambda(testBody: () -> Int, testBody1: (Int) -> Int, testBody2: (Int, Int) -> Int, testBody3: (Int, Int) -> Int): Int {
+        try {
+            return testBody() + testBody1(1) + testBody2(1, 2)
+        } catch (e: Exception) {
+            return 0
+        } finally {
+
+        }
+    }
+
+    fun callLamda() {
+        testLambda({
+            ->
+            2
+        }, {
+            it * 2
+        }, { i1: Int, i2: Int ->
+            i1 + i2
+        }, { i1, i2 ->
+            i1 + i2
+        }
+        )
+
+        var string: List<String> = listOf("hello", "jhdhsj")
+        string.filter {
+            var tag = it.length > 0
+            tag
+        }.sortedBy {
+            it.toUpperCase()
+        }
+    }
 }
