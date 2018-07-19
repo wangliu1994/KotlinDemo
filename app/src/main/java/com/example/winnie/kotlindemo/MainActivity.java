@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import com.example.winnie.kotlindemo.R;
 
+import com.example.winnie.kotlindemo.BasicKotlinKt;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(getString(R.string.app_name));
+        textView.setText(getString(BasicKotlinKt.sum(1,2)));
     }
 }
